@@ -1,0 +1,129 @@
+#.MYSQL Assignment-4
+
+Q1) Write an SQL query to display employee first_name and last_name with suitable column
+aliases.
+
+mysql> SELECT first_name AS "First_name",
+    -> last_name AS "Last_name"
+    -> FROM employees;
+
+Q2) Write an SQL query to display all different department IDs available in the EMPLOYEES
+table.
+mysql> SELECT department_id
+    -> FROM employees;
+
+Q3) Write an SQL query to display all employee details sorted by first_name in descending
+order.
+mysql> SELECT * FROM employees
+    -> ORDER BY first_name DESC;
+
+Q4) Write an SQL query to display first_name, last_name, salary, and PF for all employees.
+(PF is calculated as 15% of salary.)
+
+
+mysql> SELECT first_name,last_name,salary,PF
+    -> FROM employees;
+
+Q5) Write an SQL query to display employee_id, employee names, and salary sorted in
+increasing order of salary.
+
+mysql> SELECT employee_id,first_name,salary
+    -> FROM employees
+    -> Order by salary asc;
+
+Q6) Write an SQL query to display the total salary payable to all employees.
+
+mysql> SELECT SUM(salary) AS total_salary_payable
+    -> FROM employees;
+
+Q7) Write an SQL query to display the highest salary and the lowest salary from the
+EMPLOYEES table.
+
+mysql> SELECT max(salary) FROM employees;
+mysql> SELECT min(salary) FROM employees;
+
+
+mysql> SELECT COUNT(employee_id) FROM employees;
+
+Q10) Write an SQL query to display the number of different job roles available in the
+EMPLOYEES table.
+
+
+
+
+Q11) Write an SQL query to display the first 10 employee records from the EMPLOYEES table.
+
+mysql> SELECT * FROM employees
+    -> LIMIT 10;
+
+Q12) Write an SQL query to display employee names and salary for employees whose salary is
+less than 10000 or greater than 15000.
+mysql> SELECT first_name,salary FROM employees
+    -> WHERE salary < 10000 or salary > 15000;
+
+
+Q13) Write an SQL query to display employee names and department_id for employees working
+in department 30 and department 100.
+Sort the result by department_id.
+
+mysql> SELECT first_name, department_id
+    -> FROM employees
+    -> WHERE department_id IN (30,100)
+    -> ORDER BY department_id;
+
+Q14) Write an SQL query to display employee names and salary for employees working in
+department 30 or 100,
+whose salary is outside the range 10000 to 15000.
+
+mysql> SELECT first_name, salary
+    -> FROM employees
+
+Q15) Write an SQL query to display employee names and hire_date for employees who were
+hired in the year 1987.
+
+
+mysql> SELECT first_name, hire_date
+    -> FROM employees
+    -> WHERE YEAR(hire_date) = 1987;
+
+
+Q16) Write an SQL query to display first_name of employees whose first_name contains both
+letters 'b' and 'c'.
+
+mysql> SELECT first_name FROM employees
+    -> WHERE first_name LIKE '%a%'
+    -> OR first_name LIKE '%c%';
+
+
+Q17) Write an SQL query to display last_name, job role, and salary for employees who work as
+Programmer or Shipping Clerk,
+and whose salary is not equal to 4500, 10000, or 15000.
+
+mysql> SELECT last_name, job_role, salary
+    -> FROM employees
+    -> WHERE (job_role = 'Programmer' OR job_role = 'Shipping clerk')
+    -> AND salary NOT IN (4500,10000,15000);
+
+
+Q18) Write an SQL query to display last_name of employees who’s last_name contains exactly 6
+characters.
+
+mysql> SELECT last_name FROM employees
+    -> WHERE LENGTH(last_name) = 6;
+
+Q19) Write an SQL query to display last_name of employees having 'e' as the third character in
+their last_name.
+
+mysql> SELECT last_name FROM employees
+    -> WHERE last_name LIKE "__e";
+
+Q20) Write an SQL query to display all different job roles/designations available in the
+EMPLOYEES table.
+mysql> SELECT DISTINCT job_role FROM employees;
+
+Q21) Write an SQL query to display employee details for employees who’s last_name is
+BLAKE, SCOTT, KING, or FORD.
+
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE last_name IN ('BLAKE', 'SCOTT', 'KING', 'FORD');

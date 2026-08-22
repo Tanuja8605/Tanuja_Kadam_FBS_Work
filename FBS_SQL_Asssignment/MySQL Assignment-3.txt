@@ -1,0 +1,91 @@
+#.MySQL Assignment-3:
+
+Q1) Write an SQL query to insert the above employee records into the EMPLOYEES table.
+mysql> INSERT INTO Employees
+    -> (Employee_Id, First_Name, Last_Name, Job_Id, Salary, Manager_Id, Department_Id)
+    -> VALUES
+    -> (100, 'Steven', 'King', 1, 24000.00, 200, 10),
+    -> (101, 'Neena', 'Kochhar', 2, 17000.00, 200, 10),
+    -> (102, 'Lex', 'De Haan', 2, 17000.00, 200, 10),
+    -> (103, 'Alexander', 'Hunold', 3, 9000.00, 103, 60),
+    -> (104, 'Bruce', 'Ernst', 3, 6000.00, 103, 60),
+    -> (105, 'David', 'Austin', 3, 4800.00, 103, 60),
+    -> (106, 'Valli', 'Pataballa', 3, 4800.00, 103, 60),
+    -> (107, 'Diana', 'Lorentz', 3, 4200.00, 114, 30),
+    -> (108, 'Nancy', 'Greenberg', 4, 12000.00, 145, 80),
+    -> (109, 'Daniel', 'Faviet', 4, 9000.00, 145, 80);
+
+Q2) Write a single SQL INSERT statement to insert at least 3 department records into the
+DEPARTMENTS table.
+
+mysql> INSERT INTO departments
+    -> VALUES(1,"IT",7001,101),
+    -> (2,"Sales",7003,102),
+    -> (3,"Biology",7004,103);
+
+Q3) Write an SQL query to insert one new job record into the JOBS table ensuring duplicate
+JOB_ID is not allowed.
+
+mysql> INSERT INTO jobs
+    -> VALUES(101,"Full time",5000,10000);
+
+Q4) Write an SQL query to increment the salary of each employee by 10%.
+
+mysql> UPDATE employees
+    -> SET salary = salary + (salary * 10 /100);
+
+Q5) Write an SQL query to set EMAIL = 'not available' for employees whose department_id is
+80 and commission_pct is less than 0.20.
+
+mysql> UPDATE employees
+    -> SET email = 'not available'
+    -> WHERE department_id = 80
+    -> AND commission_pct < 0.20;
+
+Q6) Write an SQL query to set EMAIL = 'not available' for employees who belong to the
+'Purchasing' department.
+mysql> UPDATE employees
+    -> SET email = 'not available'
+    -> WHERE department_id = 5;
+
+
+Q7) Write an SQL query to update EMAIL = 'not available' and COMMISSION_PCT = 0.10 for
+all employees.
+
+mysql> UPDATE employees
+    -> SET email = 'not available',
+    ->     commission_pct = 0.10;
+
+
+Q8) Write an SQL query to increase salary by 2000 for employees working in department_id =
+60.
+mysql> UPDATE employees
+    -> SET salary = salary + 2000
+    -> WHERE department_id = 60;
+
+Q9) Write an SQL query to delete employees whose salary is less than 5000.
+mysql> DELETE FROM employees
+    -> WHERE salary < 5000;
+
+
+Q10) Write an SQL query to insert one new employee record with your own suitable details (use
+a new employee_id).
+
+INSERT INTO employees
+(employee_id, first_name, last_name, job_id, salary,
+ manager_id, department_id, email, commission_pct)
+VALUES
+(116, 'Tanuja', 'Kadam', 3, 7000.00,103, 60, 'tanuja@gmail.com', 0.10);
+
+
+Q11) Write an SQL query to change manager_id to 300 for all employees in department_id = 80.
+
+mysql> UPDATE employees
+    -> SET manager_id = 300
+    -> WHERE department_id = 80;
+
+Q12) Write an SQL query to delete the department record where department_id = 20 and observe
+the error if employees exist in that department.
+ 
+mysql> DELETE FROM departments
+    -> WHERE department_id = 10;
