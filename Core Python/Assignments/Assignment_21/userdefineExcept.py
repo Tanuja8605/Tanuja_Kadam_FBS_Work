@@ -1,0 +1,2 @@
+class TelevisionException (Exception):
+  pass
